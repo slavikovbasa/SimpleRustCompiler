@@ -1,0 +1,135 @@
+.386
+.model flat, stdcall
+.data
+a dd ?
+b dd ?
+c dd ?
+i dd ?
+.code
+main:
+push 3
+pop eax
+mov a, eax
+push 2
+push a
+pop eax
+pop ebx
+add eax, ebx
+push eax
+push 2
+pop eax
+pop ebx
+imul ebx
+mov b, eax
+push b
+push 10
+pop eax
+pop ebx
+cmp eax, ebx
+je @label12
+push 0
+jmp @label13
+@label12: push 1
+@label13:
+push a
+push 0
+pop eax
+pop ebx
+cmp eax, ebx
+jg @label14
+push 0
+jmp @label15
+@label14: push 1
+@label15:
+pop eax
+pop ebx
+cmp eax, 0
+je @label10
+cmp ebx, 0
+je @label10
+push 1
+jmp @label11
+@label10: push 0
+@label11:pop eax
+mov c, eax
+push c
+pop eax
+cmp eax, 0
+je @label16
+push 1
+pop eax
+add a, eax
+jmp @label17
+@label16:
+push 1
+pop eax
+sub a, eax
+@label17:
+@loop685325104:
+push 1
+pop eax
+add a, eax
+push a
+push 10
+pop eax
+pop ebx
+cmp eax, ebx
+jne @label26
+push 0
+jmp @label27
+@label26: push 1
+@label27:
+pop eax
+cmp eax, 0
+je @label24
+goto @loop685325104
+pop eax
+jmp @label25
+@label24:
+push b
+push 2
+pop eax
+pop ebx
+imul ebx
+mov a, eax
+goto @loop685325104end
+pop eax
+@label25:
+jmp @loop685325104
+@loop685325104end:
+@loop460141958:
+push a
+push 10
+pop eax
+pop ebx
+cmp eax, ebx
+jge @label32
+push 0
+jmp @label33
+@label32: push 1
+@label33:
+pop eax
+cmp eax, 0
+je @460141958end
+push 1
+pop ecx
+sar a, ecx
+push a
+pop eax
+jmp @loop460141958
+@loop460141958end:
+push 1
+push 5
+pop i
+pop edi
+cmp i, edi
+jnl @loop1163157884end
+@loop1163157884:
+push i
+pop eax
+mov a, eax
+inc i
+cmp i, edi
+jl @loop1163157884
+@loop1163157884end:
+end main

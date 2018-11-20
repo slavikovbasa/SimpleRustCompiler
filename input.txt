@@ -1,0 +1,26 @@
+fn main(){
+    let mut a = 3;
+    let b:i32;
+    b = (2 + a) * 2;
+    let c:bool = ((b == 10) && (a > 0));
+    if c {
+        a += 1;  
+    } else {
+        a -= 1;
+    }
+    loop{
+        a += 1;
+	if a != 10 {
+            continue;
+        } else {
+            a = b*2;
+            break;
+        }
+    }
+    while a >= 10 {
+        a >>= 1;
+    }
+    for i in 1..5 {
+        a = i;  
+    }
+}
